@@ -28,32 +28,32 @@ public class ControllerTest {
     }
 
     @Test
-    void countTheCustomers() {
+    void countTheCustomersShouldReturnTheCurrentCountOfCustomers() {
         Mockito.when(customerService.countCustomers()).thenReturn(6);
         int count = customerController.count();
         Assert.assertEquals(6, count);
     }
 
     @Test
-    void updateAcustomer() {
+    void updateAcustomerShouldThrowExceptionWhenCustomerIsNotFound() {
         customerController.update();
         Mockito.verify(customerService).updateCustomer(1, "Anushka B");
     }
 
     @Test
-    void createAcustomer() {
+    void createAcustomerShouldSaveNewCustomer() {
         customerController.createCustomer();
         Mockito.verify(customerService).createAnewCustomer(10, "Sneh");
     }
 
     @Test
-    void deleteAcustomer() {
+    void deleteAcustomerShouldDeleteFromDatabaseAndNoTraceToBeFound() {
         customerController.deleteCustomer();
         Mockito.verify(customerService).deleteAcustomer(7);
     }
 
     @Test
-    void readAcustomer() {
+    void readAcustomerMustThrowExceptionIfCustomerNotDFound() {
         List<Customer> mockedCustomerlist = new ArrayList<Customer>();
         Customer c1 = new Customer(1, "anushka");
         Customer c2 = new Customer(2, "Sneh");
@@ -61,8 +61,11 @@ public class ControllerTest {
         mockedCustomerlist.add(c1);
         mockedCustomerlist.add(c2);
         mockedCustomerlist.add(c3);
-        Mockito.when(customerController.printCustomer()).thenReturn(mockedCustomerlist);
-        List list = customerService.readCustomer();
+        Mockito.when(customerService.readCustomer()).thenReturn(mockedCustomerlist);
+        List list = customerController.printCustomer();
         Assert.assertEquals(mockedCustomerlist, list);
     }
+
+
+
 }

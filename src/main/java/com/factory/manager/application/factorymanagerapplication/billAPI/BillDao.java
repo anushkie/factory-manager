@@ -24,7 +24,7 @@ public class BillDao {
     }
 
 
-    public List<OrderLine> printOrderDetails() {
+    public List<OrderLine> getOrderDetails() {
         return jdbcTemplate.query("select * from order_line", new RowMapper<OrderLine>() {
             @Override
             public OrderLine mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -35,7 +35,7 @@ public class BillDao {
         });
     }
 
-    public List<Bill> printBills() {
+    public List<Bill> getAllBills() {
         return jdbcTemplate.query("select * from bill", new RowMapper<Bill>() {
             @Override
             public Bill mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -46,7 +46,7 @@ public class BillDao {
     }
 
 
-    public List<OrderLine> printBillBasedOnCustomer(int billId) {
+    public List<OrderLine> getBillBasedOnCustomer(int billId) {
 
         return jdbcTemplate.query("select * from order_line where bill_id = ?", new Object[] {billId}, new RowMapper<OrderLine> (){
             @Override
@@ -56,5 +56,4 @@ public class BillDao {
             }
         });
     }
-
 }

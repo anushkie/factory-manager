@@ -22,18 +22,18 @@ public class BillController {
     }
 
     @GetMapping("/order")
-    public List<OrderLine> printOrderDetails() {
-        return billService.printOrderDetails();
+    public List<OrderLine> getOrderDetails() {
+        return billService.getOrderDetails();
     }
 
     @GetMapping("/bills")
-    public List<Bill> printAllBill() {
-        return billService.printBills();
+    public List<Bill> getAllBill() {
+        return billService.getSavedBills();
     }
 
     @GetMapping("/bills/{billId}")
-    public List<OrderLine> printBillBasedOnCustomerDetails(@PathVariable int billId) {
-        return billService.printBill(billId);
+    public List<OrderLine> getBillBasedOnCustomerDetails(@PathVariable int billId) {
+        return billService.printBillForAGivenId(billId);
     }
 
     @GetMapping("/pdf")

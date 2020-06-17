@@ -16,18 +16,20 @@ public class BillService {
         this.billDao = billDao;
     }
 
-    public List<OrderLine> printOrderDetails() {
-       return billDao.printOrderDetails();
+    public List<OrderLine> getOrderDetails() {
+       return billDao.getOrderDetails();
     }
 
-    public List<Bill> printBills() {
-        return billDao.printBills();
+    public List<Bill> getSavedBills() {
+        return billDao.getAllBills();
     }
 
 
-    public List<OrderLine> printBill(int billID) {
-        return billDao.printBillBasedOnCustomer(billID);
+    public List<OrderLine> printBillForAGivenId(int billID) {
+        return billDao.getBillBasedOnCustomer(billID);
     }
+
+
 
 
 }
