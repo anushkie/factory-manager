@@ -69,5 +69,4 @@ public class BillServiceTest {
         Assert.assertEquals(mockedOrderList,list);
     }
 
-
 }

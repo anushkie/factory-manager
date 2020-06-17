@@ -49,7 +49,7 @@ public class CustomerDAO {
             @Override
             public String mapRow(ResultSet resultSet, int rowNum) throws SQLException {
                 String name = resultSet.getString("customer_name");
-                System.out.println("NAme of the customer received : " + name);
+                System.out.println("Name of the customer received : " + name);
                 return name;
             }
         });

@@ -68,7 +68,4 @@ public class BillControllerTest {
         List list = billController.getBillBasedOnCustomerDetails(17);
         Assert.assertEquals(mockedOrderList,list);
     }
-
-
-
 }
