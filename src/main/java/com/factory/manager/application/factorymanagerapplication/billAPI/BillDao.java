@@ -46,7 +46,7 @@ public class BillDao {
     }
 
 
-    public List<OrderLine> getBillBasedOnCustomer(int billId) {
+    public List<OrderLine> getBillBasedOnBillID(int billId) {
 
         return jdbcTemplate.query("select * from order_line where bill_id = ?", new Object[] {billId}, new RowMapper<OrderLine> (){
             @Override

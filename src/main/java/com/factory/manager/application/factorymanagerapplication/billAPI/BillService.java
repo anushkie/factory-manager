@@ -26,7 +26,7 @@ public class BillService {
 
 
     public List<OrderLine> printBillForAGivenId(int billID) {
-        return billDao.getBillBasedOnCustomer(billID);
+        return billDao.getBillBasedOnBillID(billID);
     }
 
 
